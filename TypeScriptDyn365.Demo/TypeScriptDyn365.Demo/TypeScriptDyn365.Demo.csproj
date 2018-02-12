@@ -1,0 +1,294 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{15A19242-A6B2-4F6F-88F0-5A6743097A3D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TypeScriptDyn365.Demo</RootNamespace>
+    <AssemblyName>TypeScriptDyn365.Demo</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>UMD</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="01_Intro\Activity - ECMAScript 6.js" />
+    <Content Include="01_Intro\Activity.js.map" />
+    <Content Include="02_XrmDefinitelyTyped\src\common\dyn365common.js" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\src\data\dyn365dataservices.ts" />
+    <Content Include="02_XrmDefinitelyTyped\src\data\dyn365dataservices.js" />
+    <Content Include="02_XrmDefinitelyTyped\src\forms\account.js" />
+    <Content Include="02_XrmDefinitelyTyped\src\forms\contact.js" />
+    <Content Include="02_XrmDefinitelyTyped\src\lib\dg.xrmquery.web.js" />
+    <Content Include="02_XrmDefinitelyTyped\src\lib\dg.xrmquery.web.min.js" />
+    <Content Include="02_XrmDefinitelyTyped\src\lib\dg.xrmquery.web.promise.min.js" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\src\common\dyn365common.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\src\forms\account.ts" />
+    <Content Include="03_UnitTests\scripts\contactTests.js" />
+    <Content Include="XrmDefinitelyTyped\FSharp.Core.dll" />
+    <Content Include="XrmDefinitelyTyped\Microsoft.Crm.Sdk.Proxy.dll" />
+    <Content Include="XrmDefinitelyTyped\Microsoft.IdentityModel.dll" />
+    <Content Include="XrmDefinitelyTyped\Microsoft.Xrm.Sdk.dll" />
+    <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.exe" />
+    <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.xml" />
+    <Content Include="02_XrmDefinitelyTyped\src\forms\account.js.map" />
+    <Content Include="02_XrmDefinitelyTyped\src\common\dyn365common.js.map" />
+    <Content Include="02_XrmDefinitelyTyped\src\data\dyn365dataservices.js.map" />
+    <Content Include="03_UnitTests\scripts\contactTests.js.map" />
+    <Content Include="02_XrmDefinitelyTyped\src\forms\contact.js.map" />
+    <Content Include="chutzpah.json" />
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="XrmDefinitelyTyped\XrmDefinitelyTyped.exe.config" />
+    <Content Include="XrmDefinitelyTyped\Run.ps1" />
+    <Content Include="XrmDefinitelyTyped\Run.fsx" />
+    <TypeScriptCompile Include="03_UnitTests\scripts\accountTests.ts" />
+    <TypeScriptCompile Include="03_UnitTests\scripts\contactTests.ts" />
+    <TypeScriptCompile Include="03_UnitTests\typings\jasmine.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="01_Intro\Activity - ECMAScript 5.js" />
+    <Content Include="01_Intro\Activity.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="01_Intro\Activity.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\src\forms\contact.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\dg.xrmquery.web.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\account\Card\AccountCardform.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\account\InteractionCentricDashboard\AccountsDashboard.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\account\Main\Account.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\account\Main\AccountforInteractiveexperience.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\account\Main\Information.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\account\QuickCreate\AccountQuickCreate.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\account\Quick\accountcard.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\account\Quick\AccountHierarchyTileForm.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\account\Quick\AccountReferencePanel.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\account\Quick\RecentCasesandEntitlements.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\account\Quick\SocialProfiles.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\connection\Main\Information.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\Card\ContactCardform.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\InteractionCentricDashboard\ContactsDashboard.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\Main\Contact.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\Main\ContactforInteractiveexperience.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\Main\Information.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\QuickCreate\ContactQuickCreate.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\Quick\accountcontactcard.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\Quick\AppforOutlookContactCard.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\Quick\AppforOutlookContactQuickView.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\Quick\contactcard.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\Quick\ContactQuickForm.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\Quick\ContactReferencePanel.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\Quick\RecentCasesandEntitlements.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\Quick\SocialProfiles.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\contact\TaskFlowForm\UpdateContact.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\opportunity\InteractionCentricDashboard\OpportunitiesDashboard.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\opportunity\Main\Information.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\opportunity\Main\Opportunity.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\opportunity\QuickCreate\Opportunity.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\opportunity\Quick\QuickOpportunityViewForm.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\opportunity\TaskFlowForm\FollowupwithOpportunity.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Form\postfollow\Main\Information.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\metadata.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Web\account.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Web\activityparty.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Web\connection.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Web\contact.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Web\opportunity.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\Web\postfollow.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\xrm.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_accountcategorycode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_accountclassificationcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_accountratingcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_address1_addresstypecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_address1_freighttermscode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_address1_shippingmethodcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_address2_addresstypecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_address2_freighttermscode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_address2_shippingmethodcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_businesstypecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_customersizecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_customertypecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_industrycode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_ownershipcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_paymenttermscode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_preferredappointmentdaycode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_preferredappointmenttimecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_preferredcontactmethodcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_shippingmethodcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_statecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_statuscode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\account_territorycode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\activityparty_instancetypecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\activityparty_participationtypemask.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\budgetstatus.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\connection_record1objecttypecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\connection_record2objecttypecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\connection_statecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\connection_statuscode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_accountrolecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_address1_addresstypecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_address1_freighttermscode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_address1_shippingmethodcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_address2_addresstypecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_address2_freighttermscode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_address2_shippingmethodcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_address3_addresstypecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_address3_freighttermscode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_address3_shippingmethodcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_customersizecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_customertypecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_educationcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_familystatuscode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_gendercode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_haschildrencode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_leadsourcecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_paymenttermscode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_preferredappointmentdaycode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_preferredappointmenttimecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_preferredcontactmethodcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_shippingmethodcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_statecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_statuscode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\contact_territorycode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\initialcommunication.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\LCID.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\need.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\opportunity_opportunityratingcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\opportunity_prioritycode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\opportunity_salesstage.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\opportunity_salesstagecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\opportunity_statecode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\opportunity_statuscode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\opportunity_timeline.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\purchaseprocess.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\purchasetimeframe.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\Enum\qooi_pricingerrorcode.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\sdk.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\web-entities.d.ts" />
+    <TypeScriptCompile Include="02_XrmDefinitelyTyped\typings\XRM\_internal\WebResources.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="02_XrmDefinitelyTyped\src\scripts\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55477</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55477/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.1.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

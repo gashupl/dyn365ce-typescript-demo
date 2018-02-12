@@ -1,0 +1,17 @@
+C:\Users\piog\OneDrive\Netcompany\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\bin\TypeScriptDyn365.Demo.dll.config
+C:\Users\piog\OneDrive\Netcompany\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\bin\TypeScriptDyn365.Demo.dll
+C:\Users\piog\OneDrive\Netcompany\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\bin\TypeScriptDyn365.Demo.pdb
+C:\Users\piog\OneDrive\Netcompany\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\piog\OneDrive\Netcompany\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\piog\OneDrive\Netcompany\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\obj\Debug\TypeScriptDyn365.Demo.csproj.CoreCompileInputs.cache
+C:\Users\piog\OneDrive\Netcompany\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\obj\Debug\TypeScriptDyn365.Demo.dll
+C:\Users\piog\OneDrive\Netcompany\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\obj\Debug\TypeScriptDyn365.Demo.pdb
+C:\Users\piog\OneDrive\Netcompany\TypeScript - Prezentacja\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\obj\Debug\TypeScriptDyn365.Demo.dll
+C:\Users\piog\OneDrive\Netcompany\TypeScript - Prezentacja\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\obj\Debug\TypeScriptDyn365.Demo.pdb
+C:\Users\piog\OneDrive\Netcompany\TypeScript - Prezentacja\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\bin\TypeScriptDyn365.Demo.dll.config
+C:\Users\piog\OneDrive\Netcompany\TypeScript - Prezentacja\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\bin\TypeScriptDyn365.Demo.dll
+C:\Users\piog\OneDrive\Netcompany\TypeScript - Prezentacja\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\bin\TypeScriptDyn365.Demo.pdb
+C:\Users\piog\OneDrive\Netcompany\TypeScript - Prezentacja\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\piog\OneDrive\Netcompany\TypeScript - Prezentacja\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\piog\OneDrive\Netcompany\TypeScript - Prezentacja\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\obj\Debug\TypeScriptDyn365.Demo.csproj.CoreCompileInputs.cache
+C:\Users\piog\OneDrive\Netcompany\TypeScript - Prezentacja\TypeScriptDyn365.Demo\TypeScriptDyn365.Demo\obj\Debug\TypeScriptDyn365.Demo.csprojResolveAssemblyReference.cache

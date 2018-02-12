@@ -1,0 +1,27 @@
+﻿{
+  "Framework": "jasmine",
+  "Compile": {
+    "Extensions": [ ".ts" ],
+    "ExtensionsWithNoOutput": [ "*.d.ts" ]
+  },
+  "References": [
+    {
+      "Path": "02_XrmDefinitelyTyped/src/common/dyn365common.ts",
+      "IsTestFrameworkFile": false
+    },
+    {
+      "Path": "02_XrmDefinitelyTyped/src/data/dyn365dataservices.ts",
+      "IsTestFrameworkFile": false
+    },
+    {
+      "Path": "02_XrmDefinitelyTyped/src/forms/contact.ts",
+      "IsTestFrameworkFile": false
+    },
+    {
+      "Path": "02_XrmDefinitelyTyped/src/forms/account.ts",
+      "IsTestFrameworkFile": false
+    }
+  ], 
+  "Tests": [{ "Path": "03_UnitTests/scripts/"}]
+
+}
