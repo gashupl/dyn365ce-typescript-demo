@@ -1,11 +1,11 @@
-var Contact;
-(function (Contact) {
+var ContactModule;
+(function (ContactModule) {
     var FormEventHandlers = /** @class */ (function () {
         function FormEventHandlers() {
         }
         return FormEventHandlers;
     }());
-    Contact.FormEventHandlers = FormEventHandlers;
+    ContactModule.FormEventHandlers = FormEventHandlers;
     var FormLogic = /** @class */ (function () {
         function FormLogic(executionContext) {
             this.executionContext = executionContext;
@@ -24,6 +24,6 @@ var Contact;
         };
         return FormLogic;
     }());
-    Contact.FormLogic = FormLogic;
-})(Contact || (Contact = {}));
+    ContactModule.FormLogic = FormLogic;
+})(ContactModule || (ContactModule = {}));
 //# sourceMappingURL=contact.js.map

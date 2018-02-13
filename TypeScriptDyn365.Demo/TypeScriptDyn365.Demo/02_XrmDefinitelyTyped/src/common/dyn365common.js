@@ -6,6 +6,9 @@ var Dyn365Common;
         Navigation.prototype.openUrl = function (url, options) {
             Xrm.Navigation.openUrl(url, options);
         };
+        Navigation.prototype.alertDialog = function (message) {
+            Xrm.Navigation.openAlertDialog({ text: message, confirmButtonLabel: undefined });
+        };
         return Navigation;
     }());
     Dyn365Common.Navigation = Navigation;

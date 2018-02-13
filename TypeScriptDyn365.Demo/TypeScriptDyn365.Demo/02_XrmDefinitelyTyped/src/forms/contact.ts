@@ -1,4 +1,4 @@
-﻿module Contact {
+﻿module ContactModule {
 
 
     export class FormEventHandlers {

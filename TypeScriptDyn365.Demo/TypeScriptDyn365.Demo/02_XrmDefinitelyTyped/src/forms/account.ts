@@ -1,4 +1,4 @@
-﻿module Account {
+﻿module AccountModule {
 
     import IDyn365Navigation = Dyn365Common.INavigation;
     import Dyn365Navigation = Dyn365Common.Navigation;
@@ -9,8 +9,13 @@
 
         private static dyn365FormCommon: IDyn365Navigation;
         private static opportunityDataService: IOpportunityDataService;
-        constructor(dyn365FormCommon: IDyn365Navigation, oppDataService: IOpportunityDataService) {
+        private static isInitialized = false; 
 
+        constructor(dyn365FormCommon: IDyn365Navigation, oppDataService: IOpportunityDataService) {
+            FormEventHandlers.initialize(dyn365FormCommon, oppDataService); 
+        }
+
+        static initialize(dyn365FormCommon: IDyn365Navigation, oppDataService: IOpportunityDataService) {
             if (dyn365FormCommon) {
                 FormEventHandlers.dyn365FormCommon = dyn365FormCommon;
             } else {
@@ -22,10 +27,16 @@
             } else {
                 FormEventHandlers.opportunityDataService = new OpportunityDataService();
             }
+
+            FormEventHandlers.isInitialized = true; 
         }
 
         static onLoad(executionContext: Xrm.ExecutionContext<any>): void {
             console.log("onLoad invoked from Product");
+
+            if (FormEventHandlers.isInitialized === false) {
+                FormEventHandlers.initialize(null, null); 
+            }
             var form = new FormLogic(
                 FormEventHandlers.dyn365FormCommon,
                 FormEventHandlers.opportunityDataService,
@@ -39,17 +50,27 @@
     export class Ribbon {
 
         private static dyn365Navigation: IDyn365Navigation;
-        constructor(dyn365Navigation: IDyn365Navigation) {
+        private static isInitialized = false; 
 
+        constructor(dyn365Navigation: IDyn365Navigation) {
+            Ribbon.initialize(dyn365Navigation); 
+        }
+
+        static initialize(dyn365Navigation: IDyn365Navigation) {
             if (dyn365Navigation) {
                 Ribbon.dyn365Navigation = dyn365Navigation;
             } else {
                 Ribbon.dyn365Navigation = new Dyn365Navigation();
             }
+            Ribbon.isInitialized = true; 
         }
 
         static onOpenExternalFormButtonClick(): void {
             console.log("onOpenExternalFormButtonClick invoked from Account");
+
+            if (Ribbon.isInitialized == false) {
+                Ribbon.initialize(null); 
+            }
             Ribbon.dyn365Navigation.openUrl("www.wp.pl", null); 
         }
     }
@@ -57,7 +78,7 @@
     class FormLogic {
 
         dyn365Navigation: IDyn365Navigation;
-        opportunitiesDataService: IOpportunityDataService
+        opportunitiesDataService: IOpportunityDataService; 
         executionContext: Xrm.ExecutionContext<any>;
         formContext: Form.account.Main.Account;
 
@@ -77,14 +98,16 @@
 
         tryShowMissingOpportunitiesWarining() {
             console.log("tryShowMissingOpportunitiesWarining");
-            let accountId = this.formContext.data.entity.getId();
-            this.opportunitiesDataService.getAccountOpportunities(accountId, this.showMissingOpportunitiesWarning, null);
+            if (this.formContext.ui.getFormType() !== 1) {
+                let accountId = this.formContext.data.entity.getId();
+                this.opportunitiesDataService.getAccountOpportunities(accountId, this.showMissingOpportunitiesWarning, null);
+            }  
         }
 
         private showMissingOpportunitiesWarning(opportunities): void {
             var notificationLevel: Xrm.NotificationLevel = "WARNING"; 
             if (opportunities.length === 0) {
-                this.formContext.ui.setFormNotification("Missing opportunities for this account", notificationLevel, "");
+                alert("Missing opportunities for this account"); 
             }
         }
     }

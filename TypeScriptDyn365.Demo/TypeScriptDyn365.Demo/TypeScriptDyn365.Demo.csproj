@@ -107,6 +107,7 @@
     <Content Include="02_XrmDefinitelyTyped\src\forms\contact.js.map" />
     <Content Include="chutzpah.json" />
     <None Include="packages.config" />
+    <Content Include="UploaderMapping.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

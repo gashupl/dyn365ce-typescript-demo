@@ -1,9 +1,12 @@
-var Account;
-(function (Account) {
+var AccountModule;
+(function (AccountModule) {
     var Dyn365Navigation = Dyn365Common.Navigation;
     var OpportunityDataService = Dyn365DataServices.OpportunityDataService;
     var FormEventHandlers = /** @class */ (function () {
         function FormEventHandlers(dyn365FormCommon, oppDataService) {
+            FormEventHandlers.initialize(dyn365FormCommon, oppDataService);
+        }
+        FormEventHandlers.initialize = function (dyn365FormCommon, oppDataService) {
             if (dyn365FormCommon) {
                 FormEventHandlers.dyn365FormCommon = dyn365FormCommon;
             }
@@ -16,32 +19,45 @@ var Account;
             else {
                 FormEventHandlers.opportunityDataService = new OpportunityDataService();
             }
-        }
+            FormEventHandlers.isInitialized = true;
+        };
         FormEventHandlers.onLoad = function (executionContext) {
             console.log("onLoad invoked from Product");
+            if (FormEventHandlers.isInitialized === false) {
+                FormEventHandlers.initialize(null, null);
+            }
             var form = new FormLogic(FormEventHandlers.dyn365FormCommon, FormEventHandlers.opportunityDataService, executionContext);
             form.setDefaultDateForNewRecords(new Date());
             form.tryShowMissingOpportunitiesWarining();
         };
+        FormEventHandlers.isInitialized = false;
         return FormEventHandlers;
     }());
-    Account.FormEventHandlers = FormEventHandlers;
+    AccountModule.FormEventHandlers = FormEventHandlers;
     var Ribbon = /** @class */ (function () {
         function Ribbon(dyn365Navigation) {
+            Ribbon.initialize(dyn365Navigation);
+        }
+        Ribbon.initialize = function (dyn365Navigation) {
             if (dyn365Navigation) {
                 Ribbon.dyn365Navigation = dyn365Navigation;
             }
             else {
                 Ribbon.dyn365Navigation = new Dyn365Navigation();
             }
-        }
+            Ribbon.isInitialized = true;
+        };
         Ribbon.onOpenExternalFormButtonClick = function () {
             console.log("onOpenExternalFormButtonClick invoked from Account");
+            if (Ribbon.isInitialized == false) {
+                Ribbon.initialize(null);
+            }
             Ribbon.dyn365Navigation.openUrl("www.wp.pl", null);
         };
+        Ribbon.isInitialized = false;
         return Ribbon;
     }());
-    Account.Ribbon = Ribbon;
+    AccountModule.Ribbon = Ribbon;
     var FormLogic = /** @class */ (function () {
         function FormLogic(dyn365Navigation, oppDataService, executionContext) {
             this.dyn365Navigation = dyn365Navigation;
@@ -56,16 +72,18 @@ var Account;
         };
         FormLogic.prototype.tryShowMissingOpportunitiesWarining = function () {
             console.log("tryShowMissingOpportunitiesWarining");
-            var accountId = this.formContext.data.entity.getId();
-            this.opportunitiesDataService.getAccountOpportunities(accountId, this.showMissingOpportunitiesWarning, null);
+            if (this.formContext.ui.getFormType() !== 1) {
+                var accountId = this.formContext.data.entity.getId();
+                this.opportunitiesDataService.getAccountOpportunities(accountId, this.showMissingOpportunitiesWarning, null);
+            }
         };
         FormLogic.prototype.showMissingOpportunitiesWarning = function (opportunities) {
             var notificationLevel = "WARNING";
             if (opportunities.length === 0) {
-                this.formContext.ui.setFormNotification("Missing opportunities for this account", notificationLevel, "");
+                alert("Missing opportunities for this account");
             }
         };
         return FormLogic;
     }());
-})(Account || (Account = {}));
+})(AccountModule || (AccountModule = {}));
 //# sourceMappingURL=account.js.map

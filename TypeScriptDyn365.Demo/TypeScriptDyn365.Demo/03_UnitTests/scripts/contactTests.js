@@ -22,7 +22,7 @@ describe("Calulated age should be 20", function () {
     it("and Age is 20", function () {
         var expectedAge = 20;
         var executionContextMock = new ExecutionContextMock();
-        var contactForm = new Contact.FormLogic(executionContextMock);
+        var contactForm = new ContactModule.FormLogic(executionContextMock);
         var now = new Date(2018, 2, 15);
         var birthday = new Date(1998, 2, 11);
         var actualAge = contactForm.calculateAge(now, birthday);

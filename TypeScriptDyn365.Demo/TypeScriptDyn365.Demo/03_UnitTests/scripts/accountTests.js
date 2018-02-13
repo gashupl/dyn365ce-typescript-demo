@@ -5,13 +5,14 @@ var NavigationMock = /** @class */ (function () {
     NavigationMock.prototype.openUrl = function (url, options) {
         this.urlOpened = true;
     };
+    NavigationMock.prototype.alertDialog = function (message) { throw new Error("Not implemented"); };
     return NavigationMock;
 }());
 describe("External url should be opened", function () {
     it("and it is opened ", function () {
         var navigationMock = new NavigationMock();
-        var accountRibbon = new Account.Ribbon(navigationMock);
-        Account.Ribbon.onOpenExternalFormButtonClick();
+        var accountRibbon = new AccountModule.Ribbon(navigationMock);
+        AccountModule.Ribbon.onOpenExternalFormButtonClick();
         expect(navigationMock.urlOpened).toBe(true);
     });
 });
