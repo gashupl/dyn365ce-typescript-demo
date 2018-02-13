@@ -9,13 +9,16 @@
 
         private static dyn365FormCommon: IDyn365Navigation;
         private static opportunityDataService: IOpportunityDataService;
-        private static isInitialized = false; 
+        private static isInitialized: boolean  = false; 
 
         constructor(dyn365FormCommon: IDyn365Navigation, oppDataService: IOpportunityDataService) {
             FormEventHandlers.initialize(dyn365FormCommon, oppDataService); 
         }
 
         static initialize(dyn365FormCommon: IDyn365Navigation, oppDataService: IOpportunityDataService) {
+            if (FormEventHandlers.isInitialized === false) {
+                return; 
+            }
             if (dyn365FormCommon) {
                 FormEventHandlers.dyn365FormCommon = dyn365FormCommon;
             } else {
@@ -34,9 +37,8 @@
         static onLoad(executionContext: Xrm.ExecutionContext<any>): void {
             console.log("onLoad invoked from Product");
 
-            if (FormEventHandlers.isInitialized === false) {
-                FormEventHandlers.initialize(null, null); 
-            }
+            FormEventHandlers.initialize(null, null); 
+
             var form = new FormLogic(
                 FormEventHandlers.dyn365FormCommon,
                 FormEventHandlers.opportunityDataService,
@@ -50,13 +52,16 @@
     export class Ribbon {
 
         private static dyn365Navigation: IDyn365Navigation;
-        private static isInitialized = false; 
+        private static isInitialized: boolean = false; 
 
         constructor(dyn365Navigation: IDyn365Navigation) {
             Ribbon.initialize(dyn365Navigation); 
         }
 
         static initialize(dyn365Navigation: IDyn365Navigation) {
+            if (Ribbon.isInitialized === true) {
+                return; 
+            }
             if (dyn365Navigation) {
                 Ribbon.dyn365Navigation = dyn365Navigation;
             } else {
@@ -66,11 +71,8 @@
         }
 
         static onOpenExternalFormButtonClick(): void {
-            console.log("onOpenExternalFormButtonClick invoked from Account");
-
-            if (Ribbon.isInitialized == false) {
-                Ribbon.initialize(null); 
-            }
+            console.log("onOpenExternalFormButtonClick invoked from Account");    
+            Ribbon.initialize(null); 
             Ribbon.dyn365Navigation.openUrl("www.wp.pl", null); 
         }
     }

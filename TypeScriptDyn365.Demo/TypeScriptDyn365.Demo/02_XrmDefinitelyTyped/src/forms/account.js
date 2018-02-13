@@ -7,6 +7,9 @@ var AccountModule;
             FormEventHandlers.initialize(dyn365FormCommon, oppDataService);
         }
         FormEventHandlers.initialize = function (dyn365FormCommon, oppDataService) {
+            if (FormEventHandlers.isInitialized === false) {
+                return;
+            }
             if (dyn365FormCommon) {
                 FormEventHandlers.dyn365FormCommon = dyn365FormCommon;
             }
@@ -23,9 +26,7 @@ var AccountModule;
         };
         FormEventHandlers.onLoad = function (executionContext) {
             console.log("onLoad invoked from Product");
-            if (FormEventHandlers.isInitialized === false) {
-                FormEventHandlers.initialize(null, null);
-            }
+            FormEventHandlers.initialize(null, null);
             var form = new FormLogic(FormEventHandlers.dyn365FormCommon, FormEventHandlers.opportunityDataService, executionContext);
             form.setDefaultDateForNewRecords(new Date());
             form.tryShowMissingOpportunitiesWarining();
@@ -39,6 +40,9 @@ var AccountModule;
             Ribbon.initialize(dyn365Navigation);
         }
         Ribbon.initialize = function (dyn365Navigation) {
+            if (Ribbon.isInitialized === true) {
+                return;
+            }
             if (dyn365Navigation) {
                 Ribbon.dyn365Navigation = dyn365Navigation;
             }
@@ -49,9 +53,7 @@ var AccountModule;
         };
         Ribbon.onOpenExternalFormButtonClick = function () {
             console.log("onOpenExternalFormButtonClick invoked from Account");
-            if (Ribbon.isInitialized == false) {
-                Ribbon.initialize(null);
-            }
+            Ribbon.initialize(null);
             Ribbon.dyn365Navigation.openUrl("www.wp.pl", null);
         };
         Ribbon.isInitialized = false;
